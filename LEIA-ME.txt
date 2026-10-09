@@ -1,0 +1,14 @@
+PAINEL ADMINISTRATIVO V1 — CONVITES PREMIUM
+
+1) Supabase > Authentication > Users > Add user: crie seu usuário com e-mail e senha.
+2) Supabase > SQL Editor: abra INSTALACAO-SUPABASE.sql, substitua SEU_EMAIL_AQUI pelo e-mail e execute.
+3) Hospede index.html, app.js e config.js na raiz de um repositório GitHub Pages separado.
+4) Abra a página e entre com o e-mail e senha cadastrados.
+5) Para criar álbum, clique Novo evento. Copie o ID gerado para eventoId no config.js da engine pública.
+6) Eventos antigos não são importados automaticamente. Para registrar Alicya, insira na tabela eventos o ID exato usado na engine, sem alterar a engine.
+   Exemplo SQL: insert into public.eventos(id,nome) values ('alicya-15-anos','Alicya — 15 anos') on conflict (id) do nothing;
+7) O botão Excluir remove arquivos e registros de fotos, depois o evento. Baixe o ZIP antes.
+
+SEGURANÇA: nunca publique senha, service_role ou secret key no GitHub. config.js usa apenas chave publishable.
+IMPORTANTE: Revise políticas públicas de DELETE e UPDATE anteriores, que podem permitir exclusão sem login.
+A interface de ZIP depende da biblioteca JSZip carregada por CDN. É necessário estar online.
