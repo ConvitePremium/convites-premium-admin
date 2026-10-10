@@ -12,3 +12,14 @@ PAINEL ADMINISTRATIVO V1 — CONVITES PREMIUM
 SEGURANÇA: nunca publique senha, service_role ou secret key no GitHub. config.js usa apenas chave publishable.
 IMPORTANTE: Revise políticas públicas de DELETE e UPDATE anteriores, que podem permitir exclusão sem login.
 A interface de ZIP depende da biblioteca JSZip carregada por CDN. É necessário estar online.
+
+
+V2 — EXCLUSÃO INDIVIDUAL
+- Botão "Excluir foto" sob cada imagem, com confirmação.
+- Remove o arquivo do Storage e depois o registro da tabela fotos.
+- Preserva o evento e as demais fotos.
+- Caso apareça erro "permission denied for table fotos", executar no SQL Editor:
+  GRANT SELECT, DELETE ON TABLE public.fotos TO authenticated;
+- Caso haja miniaturas em paths separados, elas podem requerer limpeza adicional.
+- A política RLS administrativa de DELETE em fotos e Storage deve continuar ativa.
+- Teste primeiro com uma foto descartável.
